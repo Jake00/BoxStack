@@ -1,0 +1,5 @@
+boxes are compared top down against the stack for all 3 of their orientations 
+
+at each comparison, if it is valid, but of lesser height than the current box, a consideration must be made if the current box could fit on top
+
+once a box has been deemed to be a suitible insert, pop off all boxes higher than this location, then compare this stack top down against the other stack, removing a box each time until it fits or is thrown away.
