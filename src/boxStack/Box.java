@@ -49,4 +49,8 @@ public class Box {
 		}
 		
 	}
+	
+	public int getName(){
+		return name;
+	}
 }

@@ -2,18 +2,24 @@ package boxStack;
 
 import java.util.LinkedList;
 
-public class BoxList<Box> extends LinkedList<Box> {
+@SuppressWarnings("serial")
+public class BoxList extends LinkedList<Box> {
+	/**
+	 * 
+	 */
 	private int height;
 	public BoxList(){
 		super();
 	}
 	
-	public void add(int loc, Box abox){
-		super.add(loc, abox);
+	public void add(int loc, Box box){
+		super.add(loc, box);
+		height += box.getHeight();
 	}
 
 	public Box remove(int loc){
 		Box box = super.remove(loc);
+		height -= box.getHeight();
 		return box;
 	}
 
