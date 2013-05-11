@@ -12,6 +12,7 @@ public class BoxStacker {
 			BufferedReader br = new BufferedReader(new FileReader(args[0]));
 			StackCreator sc = new StackCreator(br);
 			sc.readBoxes();
+			sc.printStack();
 			
 		} catch (IOException e) {
 			e.printStackTrace();
