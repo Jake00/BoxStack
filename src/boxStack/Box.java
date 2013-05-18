@@ -1,22 +1,26 @@
 package boxStack;
 
-public class Box {
+public class Box implements Comparable<Box>{
 
+	/**
+	 * @author Jake Bellamy 1130587 jrb46
+	 * @author Michael Coleman 1144239 mjc62
+	 */
 	private final int d1;
 	private final int d2; 
 	private final int d3; 
 	private final int name;
 	private int orientation;
 
-	
-	public Box(int d1, int d2, int d3, int name){
+
+	public Box(int d1, int d2, int d3, int o, int name){
 		this.d1 = d1;
 		this.d2 = d2;
 		this.d3 = d3; 
 		this.name = name;
-		orientation = 3; 
+		orientation = o; 
 	}
-	
+
 	public int[] getFace(){
 		switch (orientation) {
 		case 1:
@@ -28,14 +32,14 @@ public class Box {
 		default:
 			return null;
 		}
-		
+
 	}
-	
-	public void rotate(){
-		if(++orientation > 3)
-			orientation = 1;
+
+	public Box rotate(int orientation, int name){
+		Box newBox = new Box(this.d1, this.d2, this.d3, orientation, name);
+		return newBox;
 	}
-	
+
 	public int getHeight(){
 		switch (orientation) {
 		case 1:
@@ -47,10 +51,16 @@ public class Box {
 		default:
 			return 0;
 		}
-		
+
 	}
-	
+
 	public int getName(){
 		return name;
+	}
+
+	@Override
+	public int compareTo(Box x) {
+		Box b = (Box) x;
+		return b.getFace()[0]*b.getFace()[1] - this.getFace()[0]*this.getFace()[1];
 	}
 }

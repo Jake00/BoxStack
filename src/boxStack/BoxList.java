@@ -2,6 +2,10 @@ package boxStack;
 
 import java.util.LinkedList;
 
+/**
+ * @author Jake Bellamy 1130587 jrb46
+ * @author Michael Coleman 1144239 mjc62
+ */
 @SuppressWarnings("serial")
 public class BoxList extends LinkedList<Box> {
 	/**
@@ -12,7 +16,7 @@ public class BoxList extends LinkedList<Box> {
 		super();
 		height = 0;
 	}
-	
+
 	public BoxList(BoxList bl){
 		super();
 		for(int i = 0; i < bl.size(); i++){
@@ -20,20 +24,15 @@ public class BoxList extends LinkedList<Box> {
 			height = bl.getHeight();
 		}
 	}
-	
-	@Override 
-	public void add(int loc, Box box){
-		height += box.getHeight();
-		super.add(loc, box);
-	}
 
-	public Box remove(int loc){
-		Box box = super.remove(loc);
-		height -= box.getHeight();
-		return box;
+	@Override 
+	public boolean add(Box box){
+		height += box.getHeight();
+		return super.add(box);
 	}
 
 	public int getHeight(){
 		return height;
 	}
+	
 }
